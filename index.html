@@ -5,24 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script>
-    window.addEventListener("hashchange", () => {
-      document.getElementById("image-container").textContent = "change";
-    }, false);
-  </script>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      background-color: blue;
-      text-align: center;
+    }
+    #image-container {
+      background-size: cover;
+      height: 100%;
     }
   </style>
 </head>
 <body>
   <div id="image-container">
-    test
   </div>
+  <script>
+    window.addEventListener("hashchange", () => {
+      document.getElementById("image-container").style.backgroundImage = "url(https://sansarweb-media-production.akamaized.net/" + location.hash.substring(1) + ")";
+    }, false);
+    document.getElementById("image-container").style.backgroundImage = "url(https://sansarweb-media-production.akamaized.net/" + location.hash.substring(1) + ")";
+  </script>
 </body>
 </html>
